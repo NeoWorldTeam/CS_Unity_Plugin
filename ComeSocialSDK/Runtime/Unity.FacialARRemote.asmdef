@@ -1,0 +1,20 @@
+{
+    "name": "Unity.FacialARRemote",
+    "references": [
+        "Unity.TextMeshPro",
+        "Unity.XR.ARKit.FaceTracking",
+        "Unity.XR.ARFoundation",
+        "Unity.XR.ARSubsystems"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+       
+    ],
+    "noEngineReferences": false
+}
