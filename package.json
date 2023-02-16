@@ -1,0 +1,13 @@
+{
+  "name": "CS_Unity_SDK",
+  "displayName": "SDK for ComeSocial",
+  "version": "0.0.1",
+  "unity": "2021.3",
+  "description": "SDK for ComeSocial SDK for ComeSocial",
+  "dependencies": {
+  },
+  "samples": [
+  {
+  }
+ ]
+}
