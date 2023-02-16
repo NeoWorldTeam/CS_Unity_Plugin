@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements"
+         xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements"
+         noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <uie:ObjectField label="上传面具" usage-hints="None" type="UnityEngine.Object, UnityEngine.CoreModule"
+                     name="PrefabSelector" tooltip="选择将制作好的面具预制件"/>
+    <ui:Button text="上传面具" display-tooltip-when-elided="true" name="UploadButton"/>
+    <ui:VisualElement name="PreviewImage"
+                      style="background-image: url(&apos;project://database/Assets/GameAssets/Maps/RenderMap/RenderPng/OutRender.renderTexture?fileID=8400000&amp;guid=c37d1b9fb1313de41838aef0c01900be&amp;type=2#OutRender&apos;); width: 200px; height: 200px; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;"/>
+</ui:UXML>

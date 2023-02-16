@@ -1,0 +1,54 @@
+ScrollView {
+    padding: 6px;
+}
+
+#tabs {
+    font-size: 12px;
+}
+
+#tabs Label {
+    -unity-text-align: middle-center;
+    padding-bottom: 3px;
+    /*padding-left: 18px;*/
+    /*padding-right: 18px;*/
+    width: 80px;
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-bottom-width: 1.5px;
+}
+
+#tabs .active {
+    -unity-font-style: bold;
+    border-bottom-color: white;
+    border-bottom-width: 1.5px;
+}
+
+#tabContent {
+    flex-basis: 90%;
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+#contents > * {
+    display: none;
+    flex-grow: 1;
+}
+
+#contents > * > * {
+    flex-grow: 1;
+}
+
+#contents > *.active {
+    display: initial;
+}
+
+Button {
+    min-width: 80px;
+}
+
+.bottom-panel {
+    padding: 8px 12px 10px 12px;
+    border-top-color: rgba(255, 255, 255, 0.12);
+    border-top-width: 1px;
+    flex-direction: row;
+    align-items: center;
+}

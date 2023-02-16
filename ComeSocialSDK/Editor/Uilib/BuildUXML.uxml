@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements"
+         xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements"
+         noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/ComeSocialSDK/Editor/ComeSocialSDKControlPanel.uss?fileID=7433441132597879392&amp;guid=75520d132da4d094a98ec15f2e860d6c&amp;type=3#ComeSocialSDKControlPanel"/>
+    <ui:ScrollView style="flex-grow: 1;">
+        <uie:ObjectField label="Face Descriptor" type="UnityEngine.Object, UnityEngine.CoreModule" name="file-obj"/>
+        <ui:TextField picking-mode="Ignore" label="面具名称" value="filler text" text="请输入面具名称"
+                      name="face-name"/>
+        <ui:VisualElement name="pre-img"
+                          style="max-width: 200px; min-width: 200px; min-height: 200px; height: auto; max-height: 200px; align-items: stretch; justify-content: flex-start; flex-direction: column-reverse; background-image: url(&apos;project://database/Assets/GameAssests/Assets/Items/MatcapTest/0be32c79d35949827deeda9b47be1041.jpg?fileID=2800000&amp;guid=8b73433e216e3f54db95c0c3577c435f&amp;type=3#0be32c79d35949827deeda9b47be1041&apos;); left: 50%; transform-origin: center; scale: 1 1; translate: -50% -25%; top: 50%;"/>
+    </ui:ScrollView>
+    <ui:ProgressBar value="0" title="my-progress" name="info-pro"/>
+    <ui:VisualElement class="bottom-panel">
+        <ui:Label text="Ready" display-tooltip-when-elided="true" name="info-text"
+                  style="flex-grow: 1; white-space: normal;"/>
+        <ui:Button text="Test" display-tooltip-when-elided="true" enable-rich-text="true" name="test-btn"/>
+        <ui:Button text="Build" display-tooltip-when-elided="true" name="build-btn"
+                   style="display: flex; visibility: visible; overflow: hidden;"/>
+    </ui:VisualElement>
+</ui:UXML>

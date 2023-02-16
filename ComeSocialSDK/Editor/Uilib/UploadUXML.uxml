@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="FaceImg" src="project://database/Assets/ComeSocialSDK/Editor/Sample/FaceImg.uxml?fileID=9197481963319205126&amp;guid=8d76287033992744f9db850aaf978dcc&amp;type=3#FaceImg" />
+    <Style src="project://database/Assets/ComeSocialSDK/Editor/ComeSocialSDKControlPanel.uss?fileID=7433441132597879392&amp;guid=75520d132da4d094a98ec15f2e860d6c&amp;type=3#ComeSocialSDKControlPanel" />
+    <ui:ScrollView style="flex-grow: 1;">
+        <ui:DropdownField label="Project" index="0" choices="Create new, Update existing" name="upload-model" />
+        <ui:TextField picking-mode="Ignore" label="面具名称" value="filler text" readonly="false" name="upload-name" focusable="true" password="false" />
+        <uie:ObjectField label="Build Bundle" allow-scene-objects="true" name="upload-prefab" type="UnityEngine.Object, UnityEngine.CoreModule" />
+        <ui:GroupBox name="FaceImg-List" style="flex-direction: row; flex-wrap: wrap; flex-shrink: 0; flex-grow: 0; align-items: flex-start; justify-content: center; height: auto; opacity: 1;">
+            <ui:Instance template="FaceImg" name="FaceImg" class="fi" style="background-color: rgba(0, 0, 0, 0);" />
+        </ui:GroupBox>
+    </ui:ScrollView>
+    <ui:VisualElement class="bottom-panel" style="height: 50px;">
+        <ui:Label text="Ready" display-tooltip-when-elided="true" style="flex-grow: 1;" />
+        <ui:Button text="Refresh" display-tooltip-when-elided="true" name="refresh-btn" style="height: 25px;" />
+        <ui:Button text="Upload" display-tooltip-when-elided="true" name="upload-btn" style="height: 25px;" />
+    </ui:VisualElement>
+</ui:UXML>

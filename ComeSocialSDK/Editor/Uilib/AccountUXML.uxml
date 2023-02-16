@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="justify-content: center; align-items: center; flex-grow: 1; max-height: 160px;">
+        <ui:VisualElement style="width: 324px; padding-left: 12px; padding-right: 12px; padding-top: 12px; padding-bottom: 12px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgba(255, 255, 255, 0.12); border-right-color: rgba(255, 255, 255, 0.12); border-top-color: rgba(255, 255, 255, 0.12); border-bottom-color: rgba(255, 255, 255, 0.12); border-top-left-radius: 12px; border-bottom-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 12px;">
+            <ui:TextField picking-mode="Ignore" label="Username" value="filler text" name="user-name" />
+            <ui:TextField picking-mode="Ignore" label="Password" value="filler text" password="true" name="user-password" />
+            <ui:GroupBox style="flex-direction: row; margin-left: 0; margin-right: 0; margin-top: 6px; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; justify-content: flex-end;">
+                <ui:Button text="Sign up" display-tooltip-when-elided="true" name="sign-up" />
+                <ui:Button text="Sign in" display-tooltip-when-elided="true" name="sign-in" />
+            </ui:GroupBox>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
