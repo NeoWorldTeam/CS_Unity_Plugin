@@ -47,7 +47,7 @@ namespace ComeSocialSDK.Editor
             // Import UXML
             var visualTree =
                 AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(
-                    "Assets/ComeSocialSDK/Editor/ComeSocialSDKControlPanel.uxml");
+                    "Editor/ComeSocialSDKControlPanel.uxml");
             VisualElement labelFromUXML = visualTree.Instantiate();
             labelFromUXML.style.height = new StyleLength(Length.Percent(100));
             labelFromUXML.style.minWidth = new StyleLength(450);
@@ -151,7 +151,8 @@ namespace ComeSocialSDK.Editor
             Debug.Log("Test button clicked!");
 
             //生成缩略图
-            if (!CheckPrefab(file_obj.value.GameObject()))
+            
+            if (!CheckPrefab(file_obj.value as GameObject))
             {
                 ResetBuild();
                 return;
@@ -285,13 +286,13 @@ namespace ComeSocialSDK.Editor
             }
 
             // if (!CheckScript(skinObjects))//每个skinmeshrender都需要挂脚本时启用
-            if (!CheckScript(file_obj.value.GameObject()))
+            if (!CheckScript(file_obj.value as GameObject))
             {
                 Dialog("缺少驱动脚本，请检查脚本配置！");
                 return false;
             }
 
-            if (!CheckOtherScript(file_obj.value.GameObject())) return false;
+            if (!CheckOtherScript(file_obj.value as GameObject)) return false;
 
             return true;
         }
@@ -301,22 +302,22 @@ namespace ComeSocialSDK.Editor
             // return true;
             // foreach (GameObject skin in skinList)
             // {
-            if (skin.GetComponent<LocalStream>() == null)
-                // skin.AddComponent<LocalStream>();
-                return false;
+            //if (skin.GetComponent<LocalStream>() == null)
+            //    // skin.AddComponent<LocalStream>();
+            //    return false;
 
-            if (skin.GetComponent<StreamReader>() == null)
+            if (skin.GetComponent<CSFaceDescriptor>() == null)
                 // skin.AddComponent<StreamReader>();
                 return false;
 
-            if (skin.GetComponent<BlendShapesController>() == null)
-                // skin.AddComponent<BlendShapesController>();
-                return false;
+            //if (skin.GetComponent<BlendShapesController>() == null)
+            //    // skin.AddComponent<BlendShapesController>();
+            //    return false;
 
-            if (skin.GetComponent<CharacterRigController>() == null)
-                // skin.AddComponent<CharacterRigController>();
-                return false;
-            // }
+            //if (skin.GetComponent<CharacterRigController>() == null)
+            //    // skin.AddComponent<CharacterRigController>();
+            //    return false;
+            //// }
             return true;
         }
 
@@ -337,7 +338,7 @@ namespace ComeSocialSDK.Editor
             var skinList = new List<GameObject>();
             var CheckScripts = new List<string>
                 { "LocalStream", "StreamReader", "BlendShapesController", "CharacterRigController" };
-            foreach (var script in s.GetComponentsInChildren<MonoBehaviour>(true)) skinList.Add(script.GameObject());
+            foreach (var script in s.GetComponentsInChildren<MonoBehaviour>(true)) skinList.Add(script.gameObject);
 
             foreach (var skin in skinList)
             {
