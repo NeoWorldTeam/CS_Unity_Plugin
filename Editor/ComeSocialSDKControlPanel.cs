@@ -53,11 +53,7 @@ namespace ComeSocialSDK.Editor
             // Import UXML
             var visualTree =
                 AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(
-<<<<<<< HEAD:ComeSocialSDK/Editor/ComeSocialSDKControlPanel.cs
-                    "Assets/CS_Unity_Plugin/ComeSocialSDK/Editor/Uilib/ComeSocialSDKControlPanel.uxml");
-=======
                     "Editor/ComeSocialSDKControlPanel.uxml");
->>>>>>> d187b45a8c0d6f8bd8fe2409e7afd4ce270772f8:Editor/ComeSocialSDKControlPanel.cs
             VisualElement labelFromUXML = visualTree.Instantiate();
             labelFromUXML.style.height = new StyleLength(Length.Percent(100));
             labelFromUXML.style.minWidth = new StyleLength(450);
@@ -97,10 +93,10 @@ namespace ComeSocialSDK.Editor
         private TextField face_name, user_name, user_password;
 
         public string sourceScenePath =
-            "Assets/CS_Unity_Plugin/ComeSocialSDK/Editor/SampleLib/SampleMap/Face_Sample_map_101.unity";
+            "Editor/SampleLib/SampleMap/Face_Sample_map_101.unity";
 
-        public string oldtargetScenePath = "Assets/CS_Unity_Plugin/ComeSocialSDK/Editor/SampleLib/RenderMap/";
-        public string AssetsBundlesPath = "Assets/CS_Unity_Plugin/ComeSocialSDK/Editor/AssetsBundle";
+        public string oldtargetScenePath = "Editor/SampleLib/RenderMap/";
+        public string AssetsBundlesPath = "Editor/AssetsBundle";
         public List<GameObject> skinObjects = new();
 
         #endregion
@@ -244,7 +240,7 @@ namespace ComeSocialSDK.Editor
                 byte[] bytes;
                 bytes = tex.EncodeToPNG();
                 preImgName = face_name.text + ".png";
-                preImgPath = "Assets/CS_Unity_Plugin/ComeSocialSDK/Editor/SampleLib/RenderMap/RenderPng/" +
+                preImgPath = "Editor/SampleLib/RenderMap/RenderPng/" +
                              preImgName;
                 File.WriteAllBytes(preImgPath,
                     bytes);
@@ -612,7 +608,7 @@ namespace ComeSocialSDK.Editor
 
                     VisualElement NewFace = AssetDatabase
                         .LoadAssetAtPath<VisualTreeAsset>(
-                            "Assets/CS_Unity_Plugin/ComeSocialSDK/Editor/Uilib/FaceImg.uxml").Instantiate();
+                            "Editor/Uilib/FaceImg.uxml").Instantiate();
                     NewFace.Query<Button>().First().style.backgroundImage = raw;
                     NewFace.Query<Button>().First().tooltip = tool;
                     NewFace.Query<Label>().First().text = Fname;
