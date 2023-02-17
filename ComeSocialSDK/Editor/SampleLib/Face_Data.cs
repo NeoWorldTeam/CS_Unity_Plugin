@@ -13,7 +13,7 @@ public class Face_Data
     public string status;
     public string type;
     public int user_id;
-    public object edges;
+    public Edges edges;
 }
 
 [System.Serializable]
@@ -21,4 +21,21 @@ public class Root
 {
     public Face_Data[] data;
     public int status;
+}
+
+[System.Serializable]
+public class Edges {
+    public Bundle[] bundle;
+}
+
+[System.Serializable]
+public class Bundle {
+    public int id;
+    public string create_time;
+    public string update_time;
+    public int verionID;
+    public string bundle_url;
+    public string status;
+    public string platform;
+    public int mask_id;
 }
