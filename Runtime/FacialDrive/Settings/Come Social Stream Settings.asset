@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9873bf0085043ad8a2f13636d3b7fe5, type: 3}
+  m_Name: Come Social Stream Settings
+  m_EditorClassIdentifier: 
+  m_ErrorCheck: 42
+  m_BlendShapeSize: 208
+  m_FrameNumberSize: 4
+  m_FrameTimeSize: 4
+  m_HeadPoseOffset: 209
+  m_CameraPoseOffset: 273
+  m_FrameNumberOffset: 337
+  m_FrameTimeOffset: 341
+  m_BufferSize: 346
+  m_Locations:
+  - browDownLeft
+  - browDownRight
+  - browInnerUp
+  - browOuterUpLeft
+  - browOuterUpRight
+  - cheekPuff
+  - cheekSquintLeft
+  - cheekSquintRight
+  - eyeBlinkLeft
+  - eyeBlinkRight
+  - eyeLookDownLeft
+  - eyeLookDownRight
+  - eyeLookInLeft
+  - eyeLookInRight
+  - eyeLookOutLeft
+  - eyeLookOutRight
+  - eyeLookUpLeft
+  - eyeLookUpRight
+  - eyeSquintLeft
+  - eyeSquintRight
+  - eyeWideLeft
+  - eyeWideRight
+  - jawForward
+  - jawLeft
+  - jawOpen
+  - jawRight
+  - mouthClose
+  - mouthDimpleLeft
+  - mouthDimpleRight
+  - mouthFrownLeft
+  - mouthFrownRight
+  - mouthFunnel
+  - mouthLeft
+  - mouthLowerDownLeft
+  - mouthLowerDownRight
+  - mouthPressLeft
+  - mouthPressRight
+  - mouthPucker
+  - mouthRight
+  - mouthRollLower
+  - mouthRollUpper
+  - mouthShrugLower
+  - mouthShrugUpper
+  - mouthSmileLeft
+  - mouthSmileRight
+  - mouthStretchLeft
+  - mouthStretchRight
+  - mouthUpperUpLeft
+  - mouthUpperUpRight
+  - noseSneerLeft
+  - noseSneerRight
+  - tongueOut
+  m_Mappings:
+  - m_From: browDownLeft
+    m_To: browDown_L
+  - m_From: browDownRight
+    m_To: browDown_R
+  - m_From: browInnerUp
+    m_To: browInnerUp
+  - m_From: browOuterUpLeft
+    m_To: browOuterUp_L
+  - m_From: browOuterUpRight
+    m_To: browOuterUp_R
+  - m_From: cheekPuff
+    m_To: cheekPuff
+  - m_From: cheekSquintLeft
+    m_To: cheekSquint_L
+  - m_From: cheekSquintRight
+    m_To: cheekSquint_R
+  - m_From: eyeBlinkLeft
+    m_To: eyeBlink_L
+  - m_From: eyeBlinkRight
+    m_To: eyeBlink_R
+  - m_From: eyeLookDownLeft
+    m_To: eyeLookDown_L
+  - m_From: eyeLookDownRight
+    m_To: eyeLookDown_R
+  - m_From: eyeLookInLeft
+    m_To: eyeLookIn_L
+  - m_From: eyeLookInRight
+    m_To: eyeLookIn_R
+  - m_From: eyeLookOutLeft
+    m_To: eyeLookOut_L
+  - m_From: eyeLookOutRight
+    m_To: eyeLookOut_R
+  - m_From: eyeLookUpLeft
+    m_To: eyeLookUp_L
+  - m_From: eyeLookUpRight
+    m_To: eyeLookUp_R
+  - m_From: eyeSquintLeft
+    m_To: eyeSquint_L
+  - m_From: eyeSquintRight
+    m_To: eyeSquint_R
+  - m_From: eyeWideLeft
+    m_To: eyeWide_L
+  - m_From: eyeWideRight
+    m_To: eyeWide_R
+  - m_From: jawForward
+    m_To: jawForward
+  - m_From: jawLeft
+    m_To: jawLeft
+  - m_From: jawOpen
+    m_To: jawOpen
+  - m_From: jawRight
+    m_To: jawRight
+  - m_From: mouthClose
+    m_To: mouthClose
+  - m_From: mouthDimpleLeft
+    m_To: mouthDimple_L
+  - m_From: mouthDimpleRight
+    m_To: mouthDimple_R
+  - m_From: mouthFrownLeft
+    m_To: mouthFrown_L
+  - m_From: mouthFrownRight
+    m_To: mouthFrown_R
+  - m_From: mouthFunnel
+    m_To: mouthFunnel
+  - m_From: mouthLeft
+    m_To: mouthLeft
+  - m_From: mouthLowerDownLeft
+    m_To: mouthLowerDown_L
+  - m_From: mouthLowerDownRight
+    m_To: mouthLowerDown_R
+  - m_From: mouthPressLeft
+    m_To: mouthPress_L
+  - m_From: mouthPressRight
+    m_To: mouthPress_R
+  - m_From: mouthPucker
+    m_To: mouthPucker
+  - m_From: mouthRight
+    m_To: mouthRight
+  - m_From: mouthRollLower
+    m_To: mouthRollLower
+  - m_From: mouthRollUpper
+    m_To: mouthRollUpper
+  - m_From: mouthShrugLower
+    m_To: mouthShrugLower
+  - m_From: mouthShrugUpper
+    m_To: mouthShrugUpper
+  - m_From: mouthSmileLeft
+    m_To: mouthSmile_L
+  - m_From: mouthSmileRight
+    m_To: mouthSmile_R
+  - m_From: mouthStretchLeft
+    m_To: mouthStretch_L
+  - m_From: mouthStretchRight
+    m_To: mouthStretch_R
+  - m_From: mouthUpperUpLeft
+    m_To: mouthUpperUp_L
+  - m_From: mouthUpperUpRight
+    m_To: mouthUpperUp_R
+  - m_From: noseSneerLeft
+    m_To: noseSneer_L
+  - m_From: noseSneerRight
+    m_To: noseSneer_R
+  - m_From: tongueOut
+    m_To: tongueOut

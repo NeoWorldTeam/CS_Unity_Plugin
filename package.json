@@ -1,0 +1,14 @@
+{
+  "name": "com.neoworld.comesocial.unity",
+  "displayName": "SDK for ComeSocial",
+  "version": "0.0.1",
+  "unity": "2021.3",
+  "description": "SDK for ComeSocial SDK for ComeSocial",
+  "samples": [
+    {
+      "displayName": "Facial Drive Example",
+      "description": "A simple face rig of a sloth with the blendshapes.",
+      "path": "Samples~/Face Example"
+    }
+  ]
+}
