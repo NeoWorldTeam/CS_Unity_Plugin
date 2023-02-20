@@ -454,7 +454,7 @@ namespace ComeSocialSDK.Editor
             FaceImg_List = root.Query<VisualElement>("FaceImg-List");
             upload_model.RegisterValueChangedCallback(OnUploadModelChange);
             Face_imgSample = FaceImg_List.Query<VisualElement>("FaceImg");
-            FaceImg_List.Remove(Face_imgSample);
+            //FaceImg_List.Remove(Face_imgSample);
             upload_prefab.SetEnabled(false);
             refresh_btn = root.Query<Button>("refresh-btn");
             upload_name.SetEnabled(false);
