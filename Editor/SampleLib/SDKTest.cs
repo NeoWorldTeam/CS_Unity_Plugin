@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -6,6 +7,7 @@ using ComeSocialSDK.Editor;
 public class SDKTest : EditorWindow
 {
     [MenuItem("Come Social/Test BuildButton")]
+    [Obsolete("Obsolete")]
     public void BuildTest()
     {
         ComeSocialSDKControlPanel CP = new ComeSocialSDKControlPanel();

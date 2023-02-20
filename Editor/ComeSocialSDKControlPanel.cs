@@ -5,20 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using ComeSocial.Face.Drive;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
-using Button = UnityEngine.UIElements.Button;
 using Object = UnityEngine.Object;
-using StreamReader = ComeSocial.Face.Drive.StreamReader;
-using UnityEditor.PackageManager;
-
 
 namespace ComeSocialSDK.Editor
 {
@@ -31,7 +25,7 @@ namespace ComeSocialSDK.Editor
         private VisualElement root;
 
         private readonly string URL = "http://192.168.50.169/";
-        public List<string> nowFaceInfo = new List<string>();
+        public List<string> nowFaceInfo = new();
 
         public DropdownField upload_model;
         public TextField upload_name;
@@ -40,7 +34,6 @@ namespace ComeSocialSDK.Editor
         public VisualElement Face_imgSample;
 
         [Obsolete("Obsolete")]
-
         public void CreateGUI()
         {
             // Each editor window contains a root VisualElement object
@@ -93,10 +86,10 @@ namespace ComeSocialSDK.Editor
         private TextField face_name, user_name, user_password;
 
         public string sourceScenePath =
-            "Editor/SampleLib/SampleMap/Face_Sample_map_101.unity";
+            "Packages/com.neoworld.comesocial.unity/Editor/SampleLib/SampleMap/Face_Sample_map_101.unity";
 
-        public string oldtargetScenePath = "Editor/SampleLib/RenderMap/";
-        public string AssetsBundlesPath = "Editor/AssetsBundle";
+        public string oldtargetScenePath = "Packages/com.neoworld.comesocial.unity/Editor/SampleLib/RenderMap/";
+        public string AssetsBundlesPath = "Packages/com.neoworld.comesocial.unity/Editor/AssetsBundle";
         public List<GameObject> skinObjects = new();
 
         #endregion
@@ -104,7 +97,6 @@ namespace ComeSocialSDK.Editor
         #region build页
 
         [Obsolete("Obsolete")]
-
         private void InitBuild()
         {
             #region 注册按键
@@ -158,10 +150,9 @@ namespace ComeSocialSDK.Editor
             return PrefabUtility.IsPartOfPrefabAsset(PreObject);
         }
 
-        void OnRefreshBtnClick(ClickEvent evt)
+        private void OnRefreshBtnClick(ClickEvent evt)
         {
             GetMasks();
-
         }
 
         private void OnTestBtnClick(ClickEvent evt)
@@ -169,7 +160,7 @@ namespace ComeSocialSDK.Editor
             Debug.Log("Test button clicked!");
 
             //生成缩略图
-            
+
             if (!CheckPrefab(file_obj.value as GameObject))
             {
                 ResetBuild();
@@ -240,7 +231,7 @@ namespace ComeSocialSDK.Editor
                 byte[] bytes;
                 bytes = tex.EncodeToPNG();
                 preImgName = face_name.text + ".png";
-                preImgPath = "Editor/SampleLib/RenderMap/RenderPng/" +
+                preImgPath = "Packages/com.neoworld.comesocial.unity/Editor/SampleLib/RenderMap/RenderPng/" +
                              preImgName;
                 File.WriteAllBytes(preImgPath,
                     bytes);
@@ -286,10 +277,8 @@ namespace ComeSocialSDK.Editor
         private void CheckSkinnedMeshRendererInPrefab(GameObject parent)
         {
             foreach (var renderer in parent.GetComponentsInChildren<SkinnedMeshRenderer>(true))
-            {
                 skinObjects.Add(renderer.gameObject);
-                // Debug.Log(renderer.gameObject);
-            }
+            // Debug.Log(renderer.gameObject);
         }
 
 
@@ -363,7 +352,7 @@ namespace ComeSocialSDK.Editor
         {
             var skinList = new List<GameObject>();
             var CheckScripts = new List<string>
-                { "LocalStream", "StreamReader", "BlendShapesController", "CharacterRigController" };
+                { "CSFaceDescriptor" };
             foreach (var script in s.GetComponentsInChildren<MonoBehaviour>(true)) skinList.Add(script.gameObject);
 
             foreach (var skin in skinList)
@@ -413,7 +402,6 @@ namespace ComeSocialSDK.Editor
         }
 
         [Obsolete("Obsolete")]
-
         public void BuildAllAssetBundlePrefabstest(Object FacePrefab, string name, bool text)
         {
             if (!Directory.Exists(AssetsBundlesPath)) Directory.CreateDirectory(AssetsBundlesPath);
@@ -461,7 +449,6 @@ namespace ComeSocialSDK.Editor
             // refresh_btn.SetEnabled(false);
             upload_btn.SetEnabled(false);
             refresh_btn.RegisterCallback<ClickEvent>(OnRefreshBtnClick);
-
         }
 
         private void OnUploadModelChange(ChangeEvent<string> evt)
@@ -474,7 +461,6 @@ namespace ComeSocialSDK.Editor
                 FaceImg_List.SetEnabled(false);
                 FaceImg_List.style.opacity = 0;
                 upload_name.SetEnabled(true);
-
             }
             else
             {
@@ -485,7 +471,6 @@ namespace ComeSocialSDK.Editor
 
                 //查询面具
                 GetMasks();
-
             }
         }
 
@@ -513,7 +498,9 @@ namespace ComeSocialSDK.Editor
                     GetMasks();
                 }
                 else
+                {
                     Dialog("未获取到登录信息，请重试");
+                }
             }
         }
 
@@ -538,9 +525,9 @@ namespace ComeSocialSDK.Editor
 
         public void GetMasks()
         {
-            string url = URL + "api/v0/masks";
+            var url = URL + "api/v0/masks";
 
-            UnityWebRequest webRequest = UnityWebRequest.Get(url);
+            var webRequest = UnityWebRequest.Get(url);
             webRequest.SetRequestHeader("Cookie", $"_session_id={sessionID}");
             webRequest.SetRequestHeader("User-Agent", "Apifox/1.0.0 (https://www.apifox.cn)");
             webRequest.SetRequestHeader("Accept", "*/*");
@@ -549,15 +536,14 @@ namespace ComeSocialSDK.Editor
 
             AsyncOperation asyncOperation = webRequest.SendWebRequest();
             while (!asyncOperation.isDone) continue;
-            string json = webRequest.downloadHandler.text;
+            var json = webRequest.downloadHandler.text;
             // MaskData data = JsonUtility.FromJson<MaskData>(json);
             Debug.Log(json);
-            Root jsroot = JsonUtility.FromJson<Root>(json);
+            var jsroot = JsonUtility.FromJson<Root>(json);
             if (FaceImg_List.childCount != 0)
             {
-                List<VisualElement> va = FaceImg_List.Children().ToList();
+                var va = FaceImg_List.Children().ToList();
                 foreach (var fi in va)
-                {
                     try
                     {
                         // Debug.Log(fi);
@@ -565,24 +551,17 @@ namespace ComeSocialSDK.Editor
                     }
                     catch (Exception)
                     {
-
                     }
-                }
-
             }
 
             // Debug.Log("id: " +jsroot.data[0].id);
-            foreach (Face_Data fd in jsroot.data)
+            foreach (var fd in jsroot.data)
             {
-                int vID = 1;
-                if (fd.edges != null)
-                {
-                    vID = fd.edges.bundle[fd.edges.bundle.Length-1].verionID+1;
-                }
+                var vID = 1;
+                if (fd.edges.bundle != null) vID = fd.edges.bundle[fd.edges.bundle.Length - 1].verionID + 1;
 
-                string tool = $"{fd.name},{fd.id},{vID}";
+                var tool = $"{fd.name},{fd.id},{vID}";
                 CretaeMaskUI(fd.thumbnail_url, fd.name, tool);
-
             }
 
 
@@ -591,10 +570,10 @@ namespace ComeSocialSDK.Editor
 
         private void CretaeMaskUI(string imgUrl, string Fname, string tool)
         {
-            Texture2D raw = new Texture2D(100, 100);
-            UnityWebRequest m_Request = UnityWebRequestTexture.GetTexture(imgUrl);
+            var raw = new Texture2D(100, 100);
+            var m_Request = UnityWebRequestTexture.GetTexture(imgUrl);
             AsyncOperation asyncOperation = m_Request.SendWebRequest();
-            asyncOperation.completed += (AsyncOperation obj) =>
+            asyncOperation.completed += obj =>
             {
                 if (m_Request.result == UnityWebRequest.Result.ConnectionError)
                 {
@@ -606,7 +585,9 @@ namespace ComeSocialSDK.Editor
                     // Debug.Log(asyncOperation.progress);
                     raw = DownloadHandlerTexture.GetContent(m_Request);
 
-                    VisualElement NewFace = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/com.neoworld.comesocial.unity/Editor/SampleLib/FaceImg.uxml").Instantiate();
+                    VisualElement NewFace = AssetDatabase
+                        .LoadAssetAtPath<VisualTreeAsset>(
+                            "Packages/com.neoworld.comesocial.unity/Editor/SampleLib/FaceImg.uxml").Instantiate();
                     NewFace.Query<Button>().First().style.backgroundImage = raw;
                     NewFace.Query<Button>().First().tooltip = tool;
                     NewFace.Query<Label>().First().text = Fname;
@@ -614,75 +595,58 @@ namespace ComeSocialSDK.Editor
                     FaceImg_List.Add(NewFace);
                     // byte[] bytes = raw.EncodeToPNG();
                     // File.WriteAllBytes(Application.dataPath + "/SavedTexture.png", bytes);
-
                 }
             };
-
-
-
         }
 
         public void CreatMask(string uname)
         {
-
-            WWWForm form = new WWWForm();
+            var form = new WWWForm();
             form.AddField("name", uname);
-            UnityWebRequest www = UnityWebRequest.Post(URL + "api/v0/mask", form);
+            var www = UnityWebRequest.Post(URL + "api/v0/mask", form);
             www.SetRequestHeader("Accept", "*/*");
             www.SetRequestHeader("Host", "192.168.50.169");
             www.SetRequestHeader("Connection", "keep-alive");
             www.SetRequestHeader("Cookie", $"_session_id={sessionID}");
             www.SendWebRequest();
-            
+
             while (!www.isDone)
             {
                 // Wait for request to complete
             }
 
             if (www.result == UnityWebRequest.Result.ProtocolError)
-            {
                 Console.WriteLine(www.error);
-            }
             else
-            {
                 Console.WriteLine(www.downloadHandler.text);
-                // Debug.Log(upload_name.text);
-            }
-
-            string maskid = www.downloadHandler.text;
-            string pattern = @"\""id\""\s*:\s*(\d+),";
-            Match match = Regex.Match(maskid, pattern);
-            string idStr = match.Groups[1].Value;
+            // Debug.Log(upload_name.text);
+            var maskid = www.downloadHandler.text;
+            var pattern = @"\""id\""\s*:\s*(\d+),";
+            var match = Regex.Match(maskid, pattern);
+            var idStr = match.Groups[1].Value;
             nowFaceInfo = new List<string>();
             nowFaceInfo.Add(uname);
             nowFaceInfo.Add(idStr);
             nowFaceInfo.Add("1");
             Debug.Log(nowFaceInfo.ToString());
         }
-    
 
 
-
-
-
-        
         public bool CreateUpdate = true;
+
         private void OnUploadBtnClick(ClickEvent evt)
         {
             // Debug.Log(nowFaceInfo[0]+nowFaceInfo[1]+nowFaceInfo[2]);
-            if (upload_model.index ==0)
-            {
-                CreatMask(upload_name.text);
-                
-            }
-            UploadAB(AABFile, AABName,true,"Android");
-            UploadAB(IABFile, IABName,true,"iPhone"); 
+            if (upload_model.index == 0) CreatMask(upload_name.text);
+
+            UploadAB(AABFile, AABName, true, "Android");
+            UploadAB(IABFile, IABName, true, "iPhone");
             //缩略图
-            UploadAB(preImgPath, preImgName,false,"iPhone");
+            UploadAB(preImgPath, preImgName, false, "iPhone");
             GetMasks();
         }
 
-        public void UploadAB(string path, string name,bool file,string phone)
+        public void UploadAB(string path, string name, bool file, string phone)
         {
             var form = new WWWForm();
             if (file)
@@ -701,7 +665,8 @@ namespace ComeSocialSDK.Editor
                 form.AddField("version_id", nowFaceInfo[2]);
                 form.AddField("platform", phone);
             }
-            using (var www = UnityWebRequest.Post(URL+"upload", form))
+
+            using (var www = UnityWebRequest.Post(URL + "upload", form))
             {
                 www.SetRequestHeader("Cookie", $"_session_id={sessionID}");
 
@@ -724,7 +689,7 @@ namespace ComeSocialSDK.Editor
         private void OnImgClick(ClickEvent evt)
         {
             //string clickFaceName = evt
-            Button clickedButton = evt.target as Button;
+            var clickedButton = evt.target as Button;
             Debug.Log(clickedButton.tooltip);
             nowFaceInfo = clickedButton.tooltip.Split(",").ToList();
             CreateUpdate = false;
@@ -735,14 +700,9 @@ namespace ComeSocialSDK.Editor
         private void ControlCreateSwitch(bool S)
         {
             if (S)
-            {
                 upload_model.index = 0;
-            }
             else
-            {
                 upload_model.index = 1;
-
-            }
         }
 
         #endregion

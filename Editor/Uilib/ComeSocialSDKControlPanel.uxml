@@ -2,14 +2,14 @@
          xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements"
          noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <ui:Template name="AccountUXMLTemplate"
-                 src="project://database/Assets/ComeSocialSDK/Editor/AccountUXML.uxml?fileID=9197481963319205126&amp;guid=c70094f427a7adf4bb4d1812d03c3815&amp;type=3#AccountUXML"/>
+                 src="../AccountUXML.uxml?fileID=9197481963319205126&amp;guid=c70094f427a7adf4bb4d1812d03c3815&amp;type=3#AccountUXML"/>
     <ui:Template name="BuildUXML"
-                 src="project://database/Assets/ComeSocialSDK/Editor/BuildUXML.uxml?fileID=9197481963319205126&amp;guid=bce68cc25832d3b4aad1bcbe4a812f08&amp;type=3#BuildUXML"/>
+                 src="../BuildUXML.uxml?fileID=9197481963319205126&amp;guid=bce68cc25832d3b4aad1bcbe4a812f08&amp;type=3#BuildUXML"/>
     <ui:Template name="UploadUXML"
-                 src="project://database/Assets/ComeSocialSDK/Editor/UploadUXML.uxml?fileID=9197481963319205126&amp;guid=b247c8de2e2b27b4a8dd0597c69ecb54&amp;type=3#UploadUXML"/>
+                 src="../UploadUXML.uxml?fileID=9197481963319205126&amp;guid=b247c8de2e2b27b4a8dd0597c69ecb54&amp;type=3#UploadUXML"/>
     <ui:Template name="SettingsUXML"
-                 src="project://database/Assets/ComeSocialSDK/Editor/SettingsUXML.uxml?fileID=9197481963319205126&amp;guid=2019a4e0fbdb96f4c93e8fe582903fdf&amp;type=3#SettingsUXML"/>
-    <Style src="project://database/Assets/ComeSocialSDK/Editor/ComeSocialSDKControlPanel.uss?fileID=7433441132597879392&amp;guid=75520d132da4d094a98ec15f2e860d6c&amp;type=3#ComeSocialSDKControlPanel"/>
+                 src="../SettingsUXML.uxml?fileID=9197481963319205126&amp;guid=2019a4e0fbdb96f4c93e8fe582903fdf&amp;type=3#SettingsUXML"/>
+    <Style src="../ComeSocialSDKControlPanel.uss?fileID=7433441132597879392&amp;guid=75520d132da4d094a98ec15f2e860d6c&amp;type=3#ComeSocialSDKControlPanel"/>
     <ui:VisualElement
             style="background-image: url(&apos;project://database/Assets/ComeSocialSDK/Editor/Come%20Social%20Unity%20SDK.jpg?fileID=2800000&amp;guid=d0b04db7086504aa7a6b2dd367df482c&amp;type=3#Come Social Unity SDK&apos;); height: 120px; background-color: rgba(43, 43, 43, 255); -unity-background-scale-mode: scale-to-fit;">
         <ui:Label text=" " display-tooltip-when-elided="true"
