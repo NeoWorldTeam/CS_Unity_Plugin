@@ -53,7 +53,7 @@ namespace ComeSocialSDK.Editor
             // Import UXML
             var visualTree =
                 AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(
-                    "Editor/ComeSocialSDKControlPanel.uxml");
+                    "Packages/com.neoworld.comesocial.unity/Editor/Uilib/ComeSocialSDKControlPanel.uxml");
             VisualElement labelFromUXML = visualTree.Instantiate();
             labelFromUXML.style.height = new StyleLength(Length.Percent(100));
             labelFromUXML.style.minWidth = new StyleLength(450);
@@ -606,9 +606,7 @@ namespace ComeSocialSDK.Editor
                     // Debug.Log(asyncOperation.progress);
                     raw = DownloadHandlerTexture.GetContent(m_Request);
 
-                    VisualElement NewFace = AssetDatabase
-                        .LoadAssetAtPath<VisualTreeAsset>(
-                            "Editor/Uilib/FaceImg.uxml").Instantiate();
+                    VisualElement NewFace = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/com.neoworld.comesocial.unity/Editor/SampleLib/FaceImg.uxml").Instantiate();
                     NewFace.Query<Button>().First().style.backgroundImage = raw;
                     NewFace.Query<Button>().First().tooltip = tool;
                     NewFace.Query<Label>().First().text = Fname;

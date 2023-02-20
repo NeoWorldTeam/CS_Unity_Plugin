@@ -30,7 +30,7 @@ public class FaceTest : EditorWindow
 
 
         // Import UXML
-        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Test&Live/Tool/FaceTest.uxml");
+        var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/com.neoworld.comesocial.unity/Editor/Uilib/FaceTest.uxml");
         VisualElement labelFromUXML = visualTree.Instantiate();
         root.Add(labelFromUXML);
         // Get a reference to the field from UXML and assign it its value.
